@@ -1,44 +1,5 @@
 .content {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
-  color: white;
-  text-align: center;
-  padding: 50px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-
-  p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto 30px;
-  }
-
-  .hero-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-  }
-}
-
-.divider {
-  margin: 40px 0;
-  border: none;
-  height: 2px;
-  background-color: #eeeeee;
 }
 
 .offers-title {
