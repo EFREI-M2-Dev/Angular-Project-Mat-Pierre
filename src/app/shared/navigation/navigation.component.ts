@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   selector: 'app-navigation',
@@ -23,15 +24,17 @@ import { RouterLink } from '@angular/router';
     MatIconModule,
     AsyncPipe,
     NgIf,
-    RouterLink
-  ]
+    RouterLink,
+    MatMenuModule,
+  ],
 })
 export class NavigationComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map((result) => result.matches),
       shareReplay()
     );
 }
