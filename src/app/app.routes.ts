@@ -12,4 +12,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/jobs/jobs.component').then((c) => c.JobsComponent),
   },
+  {
+    path: 'profile',
+    loadComponent: () =>
+      import('./features/profile/profile.component').then((c) => c.ProfileComponent),
+  },
 ];
