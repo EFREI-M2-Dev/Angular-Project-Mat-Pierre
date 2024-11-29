@@ -1,3 +1,20 @@
 <div class="content">
+  <div class="hero">
     <h1>Bienvenue, User1</h1>
+
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates quis
+      ad sunt quas? Error ipsum, vero cum nam officia ipsa numquam facilis rem
+      facere, qui commodi tempore, est porro id?
+    </p>
+  </div>
+  <hr />
+
+  <h2>Les dernières offres :</h2>
+
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let job of jobs">
+      <app-job-card [job]="job"></app-job-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

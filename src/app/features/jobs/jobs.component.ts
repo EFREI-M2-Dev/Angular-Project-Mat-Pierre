@@ -4,7 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Job } from 'src/app/types/Job';
-import { JobCardComponent } from './components/job-card/job-card.component';
+import { JobCardComponent } from '../../shared/job-card/job-card.component';
 
 @Component({
   selector: 'app-jobs',
