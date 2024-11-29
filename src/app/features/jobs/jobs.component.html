@@ -1,6 +1,8 @@
 <div class="content">
   <h1>Liste des offres:</h1>
 
+  <app-jobs-search></app-jobs-search>
+
   <mat-grid-list cols="3" rowHeight="2:1">
     <mat-grid-tile *ngFor="let job of jobs">
       <app-job-card [job]="job"></app-job-card>

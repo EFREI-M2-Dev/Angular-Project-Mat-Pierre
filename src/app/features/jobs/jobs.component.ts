@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { Job } from 'src/app/types/Job';
 import { JobCardComponent } from '../../shared/job-card/job-card.component';
+import { JobsSearchComponent } from "./components/jobs-search/jobs-search.component";
 
 @Component({
   selector: 'app-jobs',
@@ -15,7 +16,8 @@ import { JobCardComponent } from '../../shared/job-card/job-card.component';
     MatButtonModule,
     MatGridListModule,
     JobCardComponent,
-  ],
+    JobsSearchComponent
+],
   templateUrl: './jobs.component.html',
   styleUrls: ['./jobs.component.scss'],
 })
