@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { JobCardComponent } from '../../shared/job-card/job-card.component';
 import { Job } from 'src/app/types/Job';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, MatGridListModule, JobCardComponent],
+  imports: [CommonModule, MatGridListModule, JobCardComponent, MatButtonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })

@@ -1,12 +1,16 @@
 <div class="content">
-  <mat-form-field>
-    <mat-label>Input</mat-label>
-    <input matInput />
-  </mat-form-field>
+  <div class="search-input">
+    <mat-form-field appearance="outline">
+      <mat-label>Rechercher une offre</mat-label>
+      <input matInput placeholder="Ex: Développeur, Designer..." />
+    </mat-form-field>
+  </div>
 
-  <mat-chip-listbox aria-label="Fish selection">
-    <mat-chip-option>One fish</mat-chip-option>
-    <mat-chip-option>Two fish</mat-chip-option>
-    <mat-chip-option>Two fish</mat-chip-option>
-  </mat-chip-listbox>
+  <div class="filters">
+    <mat-chip-listbox aria-label="Filtrer par catégories">
+      <mat-chip-option class="chip" selected>Technologie</mat-chip-option>
+      <mat-chip-option class="chip">Design</mat-chip-option>
+      <mat-chip-option class="chip">Management</mat-chip-option>
+    </mat-chip-listbox>
+  </div>
 </div>
