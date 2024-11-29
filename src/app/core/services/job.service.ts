@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Job } from 'src/app/types/Job';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JobService {
+  private readonly http = inject(HttpClient);
 
-  constructor() { }
+  private apiUrl = 'http://localhost:3000/jobs';
+
+  getJobs(): Observable<Job[]> {
+    return this.http.get<Job[]>(this.apiUrl);
+  }
 }
