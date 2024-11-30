@@ -13,6 +13,11 @@ export const routes: Routes = [
       import('./features/jobs/jobs.component').then((c) => c.JobsComponent),
   },
   {
+    path: 'jobs/:id',
+    loadComponent: () =>
+      import('./features/jobs/job-detail/job-detail.component').then((c) => c.JobDetailComponent),
+  },
+  {
     path: 'profile',
     loadComponent: () =>
       import('./features/profile/profile.component').then((c) => c.ProfileComponent),

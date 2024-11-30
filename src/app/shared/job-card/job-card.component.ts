@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Job } from 'src/app/types/Job';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-job-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, RouterLink],
   templateUrl: './job-card.component.html',
   styleUrls: ['./job-card.component.scss'],
 })
