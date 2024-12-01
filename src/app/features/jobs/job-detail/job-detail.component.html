@@ -1,2 +1,95 @@
-<p>job-detail works!</p>
-{{ job.title }}
+<div class="job-details">
+  <div class="job-header" [style.backgroundImage]="'url(' + job.image + ')'">
+    <div class="overlay">
+      <h1 mat-typography class="job-title">{{ job.title }}</h1>
+      <h2 mat-typography class="job-industry">{{ job.industry }}</h2>
+      <p class="job-location"><mat-icon>place</mat-icon> {{ job.location }}</p>
+    </div>
+  </div>
+
+  <mat-card>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListIcon>work</mat-icon>
+          <span>Type de contrat : {{ job.contractType }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>trending_up</mat-icon>
+          <span>Niveau d'expérience : {{ job.experienceLevel }}</span>
+        </mat-list-item>
+        <mat-list-item *ngIf="job.salary">
+          <mat-icon matListIcon>attach_money</mat-icon>
+          <span>Salaire : {{ job.salary }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>calendar_today</mat-icon>
+          <span>Date de publication : {{ job.postedDate | formatDate }}</span>
+        </mat-list-item>
+        <mat-list-item *ngIf="job.deadline">
+          <mat-icon matListIcon>event</mat-icon>
+          <span>Date limite : {{ job.deadline | formatDate }}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Description du poste</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ job.description }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="job.requirements.length">
+    <mat-card-header>
+      <mat-card-title>Exigences</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-chip
+        *ngFor="let requirement of job.requirements"
+        color="primary"
+        selected
+      >
+        {{ requirement }}
+      </mat-chip>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="job.niceToHave?.length">
+    <mat-card-header>
+      <mat-card-title>Ce serait un plus</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-chip *ngFor="let item of job.niceToHave">{{ item }}</mat-chip>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="job.benefits?.length">
+    <mat-card-header>
+      <mat-card-title>Avantages</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let benefit of job.benefits">
+          <mat-icon matListIcon>check_circle</mat-icon>
+          <span>{{ benefit }}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="apply-section">
+    <a
+      mat-raised-button
+      color="primary"
+      [href]="job.applyLink"
+      target="_blank"
+      *ngIf="job.applyLink"
+    >
+      Postuler maintenant
+    </a>
+  </div>
+</div>

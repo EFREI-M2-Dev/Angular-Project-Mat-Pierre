@@ -1,0 +1,96 @@
+.job-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+
+  .job-header {
+    position: relative;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 1rem;
+
+      .job-title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .job-industry {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .job-location {
+        font-size: 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        ::ng-deep mat-icon {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  mat-card {
+    padding: 1rem;
+
+    mat-card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #3f51b5;
+    }
+
+    ::ng-deep mat-list-item {
+      display: flex;
+      align-items: center;
+
+      ::ng-deep mat-icon {
+        font-size: 1.5rem;
+        margin-right: 1rem;
+        color: #3f51b5;
+      }
+
+      span {
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    ::ng-deep mat-chip {
+      margin: 0.5rem 0.5rem 0 0;
+    }
+  }
+
+  .apply-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+}
