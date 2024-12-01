@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { JobCardComponent } from '../../shared/job-card/job-card.component';
+import { JobCardComponent } from '../../shared/components/job-card/job-card.component';
 import { Job } from 'src/app/types/Job';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeHeroComponent } from './components/home-hero/home-hero.component';

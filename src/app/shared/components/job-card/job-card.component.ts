@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Job } from 'src/app/types/Job';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { FormatDatePipe } from "../pipes/format-date.pipe";
+import { FormatDatePipe } from "../../pipes/format-date.pipe";
 
 @Component({
   selector: 'app-job-card',
