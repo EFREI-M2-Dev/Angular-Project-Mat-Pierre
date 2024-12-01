@@ -2,39 +2,78 @@
   "companies": [
     {
       "id": 1,
-      "name": "Company A",
+      "name": "Tech Innovators",
+      "industry": "Tech",
       "location": "Paris",
-      "employeeId": [1, 2]
+      "remoteFriendly": true,
+      "description": "Une entreprise innovante spécialisée dans le développement de solutions technologiques.",
+      "website": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/",
+        "twitter": "https://twitter.com/"
+      },
+      "size": "50-200 employés",
+      "foundedYear": 2015,
+      "coreValues": ["Innovation", "Transparence", "Esprit d'équipe"],
+      "mission": "Révolutionner le secteur de la technologie pour un avenir durable.",
+      "benefits": ["Mutuelle", "Tickets restaurant", "Prime de performance"],
+      "jobOffers": [1, 5]
     },
     {
       "id": 2,
-      "name": "Company B",
+      "name": "Green Horizons",
+      "industry": "Énergie renouvelable",
       "location": "Lyon",
-      "employeeId": [3]
+      "remoteFriendly": false,
+      "description": "Pionniers dans les solutions énergétiques durables pour les entreprises et les particuliers.",
+      "website": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/",
+        "facebook": "https://www.facebook.com/"
+      },
+      "size": "200-500 employés",
+      "foundedYear": 2010,
+      "coreValues": ["Durabilité", "Innovation", "Éthique"],
+      "mission": "Construire un futur plus vert grâce à des solutions énergétiques durables.",
+      "benefits": ["RTT", "Prime d'intéressement", "Formations internes"],
+      "jobOffers": [2, 6]
     },
     {
       "id": 3,
-      "name": "Company C",
+      "name": "Creative Minds",
+      "industry": "Design et Création",
       "location": "Marseille",
-      "employeeId": [4, 5]
+      "remoteFriendly": true,
+      "description": "Studio de design passionné par la création d'expériences visuelles percutantes.",
+      "website": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
+      "socialLinks": {
+        "instagram": "https://www.instagram.com/",
+        "behance": "https://www.behance.net/"
+      },
+      "size": "10-50 employés",
+      "foundedYear": 2018,
+      "coreValues": ["Créativité", "Collaboration", "Excellence"],
+      "mission": "Rendre chaque interaction utilisateur mémorable grâce à un design exceptionnel.",
+      "benefits": ["Télétravail", "Participation aux événements design"],
+      "jobOffers": [3, 7]
     },
     {
       "id": 4,
-      "name": "Company D",
-      "location": "Toulouse",
-      "employeeId": [6]
-    },
-    {
-      "id": 5,
-      "name": "Company E",
-      "location": "Nice",
-      "employeeId": [7, 8]
-    },
-    {
-      "id": 6,
-      "name": "Company F",
-      "location": "Nantes",
-      "employeeId": [9]
+      "name": "NextGen Finance",
+      "industry": "Finance",
+      "location": "Bordeaux",
+      "remoteFriendly": false,
+      "description": "Une entreprise financière innovante au service des startups et des PME.",
+      "website": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
+      "socialLinks": {
+        "linkedin": "https://www.linkedin.com/"
+      },
+      "size": "100-300 employés",
+      "foundedYear": 2012,
+      "coreValues": ["Responsabilité", "Innovation", "Confiance"],
+      "mission": "Soutenir les entrepreneurs à chaque étape de leur croissance financière.",
+      "benefits": ["Mutuelle", "Prime annuelle", "Avantages CE"],
+      "jobOffers": [4, 8]
     }
   ],
   "jobs": [
@@ -125,7 +164,7 @@
     {
       "id": 5,
       "title": "Chef de Projet",
-      "companyId": 5,
+      "companyId": 1,
       "description": "Gérer les projets et coordonner les équipes.",
       "requirements": ["Gestion de projet", "Communication"],
       "niceToHave": ["Agile", "Scrum"],
@@ -146,7 +185,7 @@
     {
       "id": 6,
       "title": "Analyste de Données",
-      "companyId": 6,
+      "companyId": 2,
       "description": "Analyser et interpréter des données complexes.",
       "requirements": ["Python", "SQL", "Excel"],
       "niceToHave": ["Power BI", "Tableau"],
@@ -167,7 +206,7 @@
     {
       "id": 7,
       "title": "Consultant en Stratégie",
-      "companyId": 7,
+      "companyId": 3,
       "description": "Fournir des recommandations stratégiques aux clients.",
       "requirements": ["Analyse", "Présentation", "Excel"],
       "niceToHave": ["Gestion de projet", "Business Intelligence"],
@@ -188,7 +227,7 @@
     {
       "id": 8,
       "title": "Responsable Marketing",
-      "companyId": 8,
+      "companyId": 4,
       "description": "Planifier et exécuter des campagnes marketing.",
       "requirements": ["SEO", "Google Ads", "Communication"],
       "niceToHave": ["Data Analysis", "CRM"],

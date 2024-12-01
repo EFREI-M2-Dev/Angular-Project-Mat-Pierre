@@ -1,0 +1,110 @@
+<div class="company-details">
+  <div class="company-header">
+    <div class="overlay">
+      <h1 mat-typography class="company-name">{{ company.name }}</h1>
+      <h2 mat-typography class="company-industry">{{ company.industry }}</h2>
+      <p class="company-location">
+        <mat-icon>place</mat-icon> {{ company.location }}
+      </p>
+    </div>
+  </div>
+
+  <mat-card>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon matListIcon>groups</mat-icon>
+          <span>Taille : {{ company.size }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>calendar_today</mat-icon>
+          <span>Année de fondation : {{ company.foundedYear }}</span>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon matListIcon>public</mat-icon>
+          <a [href]="company.website" target="_blank">Visitez le site web</a>
+        </mat-list-item>
+        <mat-list-item *ngIf="company.remoteFriendly">
+          <mat-icon matListIcon>home</mat-icon>
+          <span>Travail à distance disponible</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>À propos de l'entreprise</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ company.description }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="company.coreValues?.length">
+    <mat-card-header>
+      <mat-card-title>Valeurs fondamentales</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-chip *ngFor="let value of company.coreValues" color="accent">
+        {{ value }}
+      </mat-chip>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="company.mission">
+    <mat-card-header>
+      <mat-card-title>Notre mission</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ company.mission }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="company.benefits?.length">
+    <mat-card-header>
+      <mat-card-title>Avantages pour les employés</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let benefit of company.benefits">
+          <mat-icon matListIcon>check_circle</mat-icon>
+          <span>{{ benefit }}</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="company.socialLinks">
+    <mat-card-header>
+      <mat-card-title>Suivez-nous</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="social-links">
+        <ul>
+          <li *ngIf="company.socialLinks.linkedin">
+            <a [href]="company.socialLinks.linkedin" target="_blank">
+              LinkedIn
+            </a>
+          </li>
+          <li *ngIf="company.socialLinks.twitter">
+            <a [href]="company.socialLinks.twitter" target="_blank">Twitter</a>
+          </li>
+          <li *ngIf="company.socialLinks.facebook">
+            <a [href]="company.socialLinks.facebook" target="_blank">
+              Facebook
+            </a>
+          </li>
+          <li *ngIf="company.socialLinks.instagram">
+            <a [href]="company.socialLinks.instagram" target="_blank">
+              Instagram
+            </a>
+          </li>
+          <li *ngIf="company.socialLinks.behance">
+            <a [href]="company.socialLinks.behance" target="_blank">Behance</a>
+          </li>
+        </ul>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

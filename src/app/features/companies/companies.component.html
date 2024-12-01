@@ -1,0 +1,9 @@
+<div class="companies-page">
+  <h1 class="page-title">Découvrez nos entreprises partenaires</h1>
+
+  <div class="companies-grid">
+    <div *ngFor="let company of companies" class="company-card">
+      <app-company-card [company]="company"></app-company-card>
+    </div>
+  </div>
+</div>

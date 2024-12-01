@@ -8,6 +8,16 @@ export const routes: Routes = [
       import('./features/home/home.component').then((c) => c.HomeComponent),
   },
   {
+    path: 'companies',
+    loadComponent: () =>
+      import('./features/companies/companies.component').then((c) => c.CompaniesComponent),
+  },
+  {
+    path: 'companies/:id',
+    loadComponent: () =>
+      import('./features/companies/company-detail/company-detail.component').then((c) => c.CompanyDetailComponent),
+  },
+  {
     path: 'jobs',
     loadComponent: () =>
       import('./features/jobs/jobs.component').then((c) => c.JobsComponent),
