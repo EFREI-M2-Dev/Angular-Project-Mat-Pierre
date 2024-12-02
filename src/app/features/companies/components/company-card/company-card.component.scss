@@ -16,6 +16,10 @@
     gap: 5px;
     color: #757575;
     font-size: 0.9rem;
+
+    mat-chip {
+      margin-left: 1em;
+    }
   }
 
   .company-description {
@@ -36,15 +40,8 @@
   }
 
   mat-card-actions {
+    margin-top: 1em;
     display: flex;
-    justify-content: center;
-    margin-top: auto;
-  }
-
-  button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    width: 100%;
-    letter-spacing: 0.5px;
+    gap: 1em;
   }
 }
