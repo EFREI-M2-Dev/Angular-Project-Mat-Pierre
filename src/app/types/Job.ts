@@ -6,7 +6,7 @@ export interface Job {
   requirements: string[];
   niceToHave?: string[];
   location: string;
-  contractType: 'CDI' | 'CDD' | 'Freelance' | 'Stage' | 'Alternance';
+  contractType: ContractType;
   salary?: string;
   experienceLevel: 'Junior' | 'Intermédiaire' | 'Senior';
   industry: string;
@@ -18,4 +18,11 @@ export interface Job {
   applyLink?: string;
   status: 'active' | 'inactive';
   image: string;
+}
+
+export type ContractType = 'CDI' | 'CDD' | 'Freelance' | 'Stage' | 'Alternance';
+
+export interface JobFilters {
+  search: string;
+  contractTypes: ContractType[];
 }

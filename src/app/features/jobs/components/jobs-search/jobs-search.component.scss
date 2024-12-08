@@ -1,25 +1,33 @@
 .content {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  gap: 1.5rem;
   padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
 
-.search-input {
-  flex: 1 1 300px;
-}
+  form {
+    width: 100%;
+  }
 
-mat-form-field {
-  width: 100%;
-  border-radius: 4px;
-}
+  .search-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 1rem;
+  }
 
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  .search-input {
+    flex: 2;
+    min-width: 250px;
+  }
+
+  .contract-type-filter {
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    mat-chip-option {
+      font-size: 0.9rem;
+      padding: 5px 10px;
+    }
+  }
 }

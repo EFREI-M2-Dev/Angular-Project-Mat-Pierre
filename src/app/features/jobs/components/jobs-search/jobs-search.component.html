@@ -1,16 +1,28 @@
 <div class="content">
-  <div class="search-input">
-    <mat-form-field appearance="outline">
-      <mat-label>Rechercher une offre</mat-label>
-      <input matInput placeholder="Ex: Développeur, Designer..." />
-    </mat-form-field>
-  </div>
+  <form [formGroup]="searchForm">
+    <div class="search-inline">
+      <mat-form-field appearance="outline" class="search-input">
+        <mat-label>Rechercher une offre</mat-label>
+        <input
+          matInput
+          formControlName="search"
+          placeholder="Ex: Développeur, Designer..."
+        />
+      </mat-form-field>
 
-  <div class="filters">
-    <mat-chip-listbox aria-label="Filtrer par catégories">
-      <mat-chip-option class="chip" selected>Technologie</mat-chip-option>
-      <mat-chip-option class="chip">Design</mat-chip-option>
-      <mat-chip-option class="chip">Management</mat-chip-option>
-    </mat-chip-listbox>
-  </div>
+      <mat-chip-listbox
+        formControlName="contractTypes"
+        aria-label="Filtrer par catégories"
+        multiple
+        class="contract-type-filter"
+      >
+        <mat-chip-option
+          *ngFor="let type of contractTypeOptions"
+          [value]="type"
+        >
+          {{ type }}
+        </mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+  </form>
 </div>

@@ -1,10 +1,10 @@
 <div class="content">
   <h1>Liste des offres :</h1>
 
-  <app-jobs-search></app-jobs-search>
+  <app-jobs-search (filtersChanged)="applyFilters($event)"></app-jobs-search>
 
   <div class="jobs-grid">
-    <div *ngFor="let job of jobs" class="job-card">
+    <div *ngFor="let job of filteredJobs" class="job-card">
       <app-job-card [job]="job"></app-job-card>
     </div>
   </div>
