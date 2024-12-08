@@ -1,8 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {
-  FormBuilder,
+  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -23,18 +23,18 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.scss'],
 })
-export class ProfileFormComponent implements OnInit {
-  private readonly fb = inject(FormBuilder);
-
-  public profileForm!: FormGroup;
-
-  public ngOnInit(): void {
-    this.profileForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.minLength(6)]],
-    });
-  }
+export class ProfileFormComponent {
+  public profileForm = new FormGroup({
+    name: new FormControl('', {
+      nonNullable: true,
+      validators: Validators.required,
+    }),
+    email: new FormControl('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.email],
+    }),
+    password: new FormControl(null, Validators.minLength(6)),
+  });
 
   public onSubmit(): void {
     if (this.profileForm.valid) {
