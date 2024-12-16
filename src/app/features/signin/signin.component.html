@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>Créer un compte</h1>
+    <form [formGroup]="signinForm" (submit)="signIn()">
+        <mat-form-field floatLabel="always">
+            <mat-label>Email</mat-label>
+            <input 
+                matInput
+                type="email"
+                formControlName="email"
+                placeholder="toto@exemple.fr"
+            />
+        </mat-form-field>
+
+        <mat-form-field floatLabel="always">
+            <mat-label>Nom</mat-label>
+            <input
+                matInput
+                type="text"
+                formControlName="name"
+                placeholder="Votre nom"
+            />
+        </mat-form-field>
+
+        <mat-form-field floatLabel="always">
+            <mat-label>Mot de passe</mat-label>
+            <input
+                matInput
+                type="password"
+                formControlName="password"
+            />
+        </mat-form-field>
+
+        <button 
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="signinForm.invalid && signinForm.dirty">
+            S'inscrire
+        </button>
+    </form>
+
+    <h2>Déjà un compte ?</h2>
+    <button 
+        mat-raised-button
+        [routerLink]="['/login']">Se connecter
+    </button>
+</div>

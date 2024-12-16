@@ -32,4 +32,14 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./features/profile/profile.component').then((c) => c.ProfileComponent),
   },
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./features/login/login.component').then((c) => c.LoginComponent),
+  },
+  {
+    path: 'signin',
+    loadComponent: () =>
+      import('./features/signin/signin.component').then((c) => c.SigninComponent)
+  }
 ];
