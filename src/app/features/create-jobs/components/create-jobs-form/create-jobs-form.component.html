@@ -1,0 +1,120 @@
+<form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Titre</mat-label>
+    <input matInput formControlName="title" placeholder="Intitulé du poste" />
+    <mat-error *ngIf="jobForm.get('title')?.hasError('required')">
+      Le titre est obligatoire.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ID de l'entreprise</mat-label>
+    <input
+      matInput
+      type="number"
+      formControlName="companyId"
+      placeholder="ID de l'entreprise"
+    />
+    <mat-error *ngIf="jobForm.get('companyId')?.hasError('required')">
+      L'ID de l'entreprise est obligatoire.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      formControlName="description"
+      placeholder="Description du poste"
+    ></textarea>
+    <mat-error *ngIf="jobForm.get('description')?.hasError('required')">
+      La description est obligatoire.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Localisation</mat-label>
+    <input
+      matInput
+      formControlName="location"
+      placeholder="Localisation du poste"
+    />
+    <mat-error *ngIf="jobForm.get('location')?.hasError('required')">
+      La localisation est obligatoire.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Type de contrat</mat-label>
+    <mat-select formControlName="contractType">
+      <mat-option
+        *ngFor="let type of contractType"
+        [value]="type"
+      >
+        {{ type }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="jobForm.get('contractType')?.hasError('required')">
+      Le type de contrat est obligatoire.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Niveau d'expérience</mat-label>
+    <mat-select formControlName="experienceLevel">
+      <mat-option
+        *ngFor="let level of experienceLevel"
+        [value]="level"
+      >
+        {{ level }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Industrie</mat-label>
+    <input
+      matInput
+      formControlName="industry"
+      placeholder="Secteur de l'industrie"
+    />
+    <mat-error *ngIf="jobForm.get('industry')?.hasError('required')">
+      L'industrie est obligatoire.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Date de publication</mat-label>
+    <input matInput type="date" formControlName="postedDate" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Statut</mat-label>
+    <mat-select formControlName="status">
+      <mat-option value="active">Actif</mat-option>
+      <mat-option value="inactive">Inactif</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Image (URL)</mat-label>
+    <input matInput formControlName="image" placeholder="URL de l'image" />
+    <mat-error *ngIf="jobForm.get('image')?.hasError('required')">
+      L'image est obligatoire.
+    </mat-error>
+  </mat-form-field>
+
+  <div class="actions">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="jobForm.invalid"
+    >
+      Créer
+    </button>
+    <button mat-button color="warn" type="button" (click)="onReset()">
+      Réinitialiser
+    </button>
+  </div>
+</form>

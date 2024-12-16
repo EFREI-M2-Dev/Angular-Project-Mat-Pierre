@@ -23,6 +23,11 @@ export const routes: Routes = [
       import('./features/jobs/jobs.component').then((c) => c.JobsComponent),
   },
   {
+    path: 'create-jobs',
+    loadComponent: () =>
+      import('./features/create-jobs/create-jobs.component').then((c) => c.CreateJobsComponent),
+  },
+  {
     path: 'jobs/:id',
     loadComponent: () =>
       import('./features/jobs/job-detail/job-detail.component').then((c) => c.JobDetailComponent),

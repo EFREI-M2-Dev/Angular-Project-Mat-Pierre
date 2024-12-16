@@ -8,7 +8,7 @@ export interface Job {
   location: string;
   contractType: ContractType;
   salary?: string;
-  experienceLevel: 'Junior' | 'Intermédiaire' | 'Senior';
+  experienceLevel: ExperienceLevel;
   industry: string;
   languages: string[];
   postedDate: string;
@@ -16,11 +16,15 @@ export interface Job {
   workHours?: string;
   benefits?: string[];
   applyLink?: string;
-  status: 'active' | 'inactive';
+  status: Status;
   image: string;
 }
 
 export type ContractType = 'CDI' | 'CDD' | 'Freelance' | 'Stage' | 'Alternance';
+
+export type ExperienceLevel = 'Junior' | 'Intermédiaire' | 'Senior';
+
+export type Status = 'active' | 'inactive';
 
 export interface JobFilters {
   search: string;

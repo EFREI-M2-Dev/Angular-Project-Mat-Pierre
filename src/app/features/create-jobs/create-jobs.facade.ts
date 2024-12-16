@@ -1,18 +1,19 @@
 import { inject, Injectable } from '@angular/core';
 import { JobService } from 'src/app/core/services/job.service';
+import { Job } from 'src/app/types/Job';
 
 @Injectable({
   providedIn: 'root',
 })
-export class JobsFacade {
+export class CreateJobsFacade {
   private readonly jobService = inject(JobService);
 
-  public getJobs() {
-    return this.jobService.getJobs();
+  public createJob(job: Job) {
+    return this.jobService.createJob(job);
   }
 
-  public getJob(id: string) {
-    return this.jobService.getJob(id);
+  public getExperienceLevel() {
+    return this.jobService.getExperienceLevel();
   }
 
   public getContractType() {

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Job } from 'src/app/types/Job';
+import { ContractType, ExperienceLevel, Job } from 'src/app/types/Job';
 
 @Injectable({
   providedIn: 'root',
@@ -17,5 +17,17 @@ export class JobService {
 
   getJob(id: string): Observable<Job> {
     return this.http.get<Job>(this.apiUrl + '/' + id);
+  }
+
+  createJob(job: Job): Observable<Job> {
+    return this.http.post<Job>(this.apiUrl, job);
+  }
+
+  getContractType(): ContractType[] {
+    return ['CDI', 'CDD', 'Freelance', 'Stage', 'Alternance'];
+  }
+
+  getExperienceLevel(): ExperienceLevel[] {
+    return ['Junior', 'Intermédiaire', 'Senior'];
   }
 }
