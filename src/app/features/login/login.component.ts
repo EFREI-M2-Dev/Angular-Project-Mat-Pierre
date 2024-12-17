@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       password: ['', Validators.required]
     });
   }
@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit{
   }
 
   logIn(){
-    this.authService.logIn(this.email?.value, this.password?.value);
+    if(this.loginForm.valid && this.loginForm.dirty){
+      this.authService.logIn(this.email?.value, this.password?.value);
+    }
   }
 }

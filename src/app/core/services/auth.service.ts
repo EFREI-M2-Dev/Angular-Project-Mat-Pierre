@@ -1,6 +1,7 @@
+import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, Observable, switchMap, catchError, throwError, of } from 'rxjs';
+import { map, Observable, switchMap, catchError, throwError, of, tap } from 'rxjs';
 import { User } from 'src/app/types/User';
 
 
@@ -10,6 +11,7 @@ import { User } from 'src/app/types/User';
 export class AuthService {
 
   private readonly http = inject(HttpClient);
+  private readonly userService = inject(UserService);
   private apiUrl = 'http://localhost:3000/user';
 
   private getUsers(): Observable<User[]> {
@@ -39,7 +41,20 @@ export class AuthService {
   }
 
   logIn(email: string, password: string) {
-    const user = this.http.post<User>(this.apiUrl, {email, password});
+    this.http.post<User>(this.apiUrl, {email, password}).pipe(
+      tap(user => {
+        this.userService.login(user);
+      }),
+      catchError(error => {
+        console.error('Erreur de connexion:', error);
+        return throwError(() => new Error('Erreur de connexion'));
+      })
+    )
+    
+  }
+
+  logOut() {
+    this.userService.logout();
   }
 
   private isEmailUnique(email: string): Observable<boolean> {

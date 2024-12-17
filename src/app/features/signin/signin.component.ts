@@ -1,3 +1,4 @@
+import { PasswordValidatorDirective } from './../../core/directives/password-validator.directive';
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -30,7 +31,7 @@ export class SigninComponent implements OnInit{
     this.signinForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, PasswordValidatorDirective.passwordValidator, Validators.minLength(6)]]
     });
   }
 
