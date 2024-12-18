@@ -38,6 +38,10 @@
         margin-bottom: 10px;
       }
 
+      .job-company a {
+        color: white;
+      }
+
       .job-location {
         font-size: 1.2rem;
         display: flex;
@@ -86,6 +90,7 @@
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    gap: 1em;
 
     button {
       padding: 1rem 2rem;

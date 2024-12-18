@@ -7,12 +7,16 @@
     font-size: 2rem;
     color: #333;
   }
-}
 
-.jobs-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-  place-items: center;
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    place-items: center;
+  }
+
+  .no-jobs-message {
+    text-align: center;
+  }
 }

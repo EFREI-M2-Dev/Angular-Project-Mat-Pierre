@@ -3,7 +3,11 @@
 
   <app-jobs-search (filtersChanged)="applyFilters($event)"></app-jobs-search>
 
-  <div class="jobs-grid">
+  <p *ngIf="filteredJobs.length === 0" class="no-jobs-message">
+    Aucune offre trouvée.
+  </p>
+
+  <div class="jobs-grid" *ngIf="filteredJobs.length > 0">
     <div *ngFor="let job of filteredJobs" class="job-card">
       <app-job-card [job]="job"></app-job-card>
     </div>

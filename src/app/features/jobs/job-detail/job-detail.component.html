@@ -3,6 +3,9 @@
     <div class="overlay">
       <h1 mat-typography class="job-title">{{ job.title }}</h1>
       <h2 mat-typography class="job-industry">{{ job.industry }}</h2>
+      <h3 mat-typography class="job-company">
+        <a [routerLink]="['/companies', company.id]">{{ company.name }}</a>
+      </h3>
       <p class="job-location"><mat-icon>place</mat-icon> {{ job.location }}</p>
     </div>
   </div>
@@ -82,6 +85,8 @@
   </mat-card>
 
   <div class="apply-section">
+    <a mat-raised-button [routerLink]="['/jobs']">Retour</a>
+
     <a
       mat-raised-button
       color="primary"
