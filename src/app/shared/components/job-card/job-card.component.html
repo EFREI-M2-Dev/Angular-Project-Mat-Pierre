@@ -1,7 +1,7 @@
 <mat-card class="card">
   <img mat-card-image [src]="job.image" alt="Image of the job" />
   <mat-card-header>
-    <mat-card-title class="job-title">
+    <mat-card-title [appNewBadge]="job.postedDate" class="job-title">
       {{ job.contractType }} - {{ job.title }}
     </mat-card-title>
     <mat-card-subtitle class="location">

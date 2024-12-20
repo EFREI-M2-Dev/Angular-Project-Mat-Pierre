@@ -5,12 +5,21 @@ import { MatCardModule } from '@angular/material/card';
 import { Job } from 'src/app/types/Job';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
-import { FormatDatePipe } from "../../pipes/format-date.pipe";
+import { FormatDatePipe } from '../../pipes/format-date.pipe';
+import { NewBadgeDirective } from '../../directives/new-badge.directive';
 
 @Component({
   selector: 'app-job-card',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, RouterLink, MatIconModule, FormatDatePipe],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    RouterLink,
+    MatIconModule,
+    FormatDatePipe,
+    NewBadgeDirective,
+  ],
   templateUrl: './job-card.component.html',
   styleUrls: ['./job-card.component.scss'],
 })
@@ -28,6 +37,6 @@ export class JobCardComponent {
     languages: [],
     postedDate: '',
     status: 'active',
-    image: ''
-  }
+    image: '',
+  };
 }
