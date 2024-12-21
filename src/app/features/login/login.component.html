@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Se connecter</h1>
-    <form [formGroup]="loginForm" (submit)="logIn()">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
         <mat-form-field floatLabel="always">
             <mat-label>Email</mat-label>
             <input 

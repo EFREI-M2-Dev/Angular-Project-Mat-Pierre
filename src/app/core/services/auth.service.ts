@@ -1,6 +1,7 @@
 import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { map, Observable, switchMap, catchError, throwError, of, tap } from 'rxjs';
 import { User } from 'src/app/types/User';
 
@@ -12,13 +13,14 @@ export class AuthService {
 
   private readonly http = inject(HttpClient);
   private readonly userService = inject(UserService);
-  private apiUrl = 'http://localhost:3000/user';
+  private readonly router = inject(Router);
+  private apiUrl = 'http://localhost:3000/users';
 
   private getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
   }
 
-  signIn(name: string, email: string, password: string) {
+  signIn(name: string, email: string, password: string): Observable<User> {
     return this.isEmailUnique(email).pipe(
       switchMap(isUnique => {
         if (!isUnique) {
@@ -30,7 +32,8 @@ export class AuthService {
             const lastId = this.getLastIndexAvailable(users);
             return { id: lastId + 1, name, email, password, location: "", languagesSpoken: [] } as User;
           }),
-          switchMap(newUser => this.createUser(newUser))
+          switchMap(newUser => this.createUser(newUser)),
+          tap(() => this.router.navigate(['login']))
         );
       }),
       catchError(error => {
@@ -40,27 +43,28 @@ export class AuthService {
     );
   }
 
-  logIn(email: string, password: string) {
-    this.http.post<User>(this.apiUrl, {email, password}).pipe(
+  logIn(email: string, password: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}?email=${email}&password=${password}`).pipe(
       tap(user => {
         this.userService.login(user);
+        this.router.navigate(['/home']);
       }),
       catchError(error => {
         console.error('Erreur de connexion:', error);
         return throwError(() => new Error('Erreur de connexion'));
       })
-    )
-    
+    );
   }
 
   logOut() {
     this.userService.logout();
+    this.router.navigate(['/login']);
   }
 
   private isEmailUnique(email: string): Observable<boolean> {
     return this.http.get<User[]>(`${this.apiUrl}?email=${email}`).pipe(
       map(users => users.length === 0),
-      catchError(() => of(false))
+      catchError(() => of(true))
     );
   }
 

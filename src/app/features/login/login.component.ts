@@ -41,9 +41,12 @@ export class LoginComponent implements OnInit{
     return this.loginForm.get('password');
   }
 
-  logIn(){
+  onLogin(){
     if(this.loginForm.valid && this.loginForm.dirty){
-      this.authService.logIn(this.email?.value, this.password?.value);
+      this.authService.logIn(this.email?.value, this.password?.value).subscribe({
+        next: (user) => console.log("Connexion réussie", user),
+        error: (error) => console.error("Erreur de connexion", error)
+      })
     }
   }
 }

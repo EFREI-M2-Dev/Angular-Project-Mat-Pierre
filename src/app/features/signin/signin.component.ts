@@ -1,12 +1,28 @@
-import { PasswordValidatorDirective } from './../../core/directives/password-validator.directive';
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { MatButtonModule } from '@angular/material/button';
+
+export const passwordValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const rules = {
+      capitalLetter: true,
+      specialCharacter: true,
+    };
+
+    if (rules.capitalLetter && !/[A-Z]/.test(control.value)) {
+      return { passwordForbidden: { capitalLetter: 'Doit contenir au moins une lettre majuscule' } };
+    }
+
+    if (rules.specialCharacter && !/[!-/:-@[-`{-~]/.test(control.value)) {
+      return { passwordForbidden: { specialCharacter: 'Doit contenir au moins un caractère spécial' } };
+    }
+
+    return null;
+  };
 
 @Component({
   selector: 'app-signin',
@@ -31,7 +47,7 @@ export class SigninComponent implements OnInit{
     this.signinForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
-      password: ['', [Validators.required, PasswordValidatorDirective.passwordValidator, Validators.minLength(6)]]
+      password: ['', [Validators.required, passwordValidator, Validators.minLength(6)]]
     });
   }
 
@@ -47,9 +63,12 @@ export class SigninComponent implements OnInit{
     return this.signinForm.get('password');
   }
 
-  signIn() {
+  onSignin() {
     if(this.signinForm.valid && this.signinForm.dirty){
-      this.authService.signIn(this.name?.value, this.email?.value, this.password?.value);
+      this.authService.signIn(this.name?.value, this.email?.value, this.password?.value).subscribe({
+        next: (user) => console.log("Utilisateur créé", user),
+        error: (error) => console.error("Erreur à la création", error)
+    });
     }
   }
 }

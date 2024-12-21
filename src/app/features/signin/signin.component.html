@@ -1,6 +1,6 @@
 <div class="container">
     <h1>Créer un compte</h1>
-    <form [formGroup]="signinForm" (submit)="signIn()">
+    <form [formGroup]="signinForm" (ngSubmit)="onSignin()">
         <mat-form-field floatLabel="always">
             <mat-label>Email</mat-label>
             <input 
