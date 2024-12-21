@@ -252,13 +252,121 @@
       "name": "John Doe",
       "email": "john.doe@example.com",
       "password": "test",
-      "companyId": 1
+      "companyId": 1,
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
     },
     {
       "id": 2,
       "name": "Jane Doe",
       "email": "jane.doe@example.com",
-      "password": "test"
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Maverick Doe",
+      "email": "maverick.doe@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Bob Brown",
+      "email": "bob.brown@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Charlie Davis",
+      "email": "charlie.davis@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Emily Wilson",
+      "email": "emily.wilson@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Frank Miller",
+      "email": "frank.miller@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Grace Lee",
+      "email": "grace.lee@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Henry Clark",
+      "email": "henry.clark@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Ivy Adams",
+      "email": "ivy.adams@example.com",
+      "password": "test",
+      "languagesSpoken": [
+        "Français",
+        "Anglais"
+      ]
     }
   ]
 }
