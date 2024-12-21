@@ -5,4 +5,5 @@ export interface User {
     password: string;
     location: string;
     languagesSpoken: string[]; 
+    companyId?: number;
 }

@@ -1,22 +1,14 @@
-<form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="form">
+<form
+  [formGroup]="jobForm"
+  (ngSubmit)="onSubmit()"
+  class="form"
+  *ngIf="hasCompany; else noCompany"
+>
   <mat-form-field appearance="outline">
     <mat-label>Titre</mat-label>
     <input matInput formControlName="title" placeholder="Intitulé du poste" />
     <mat-error *ngIf="jobForm.get('title')?.hasError('required')">
       Le titre est obligatoire.
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>ID de l'entreprise</mat-label>
-    <input
-      matInput
-      type="number"
-      formControlName="companyId"
-      placeholder="ID de l'entreprise"
-    />
-    <mat-error *ngIf="jobForm.get('companyId')?.hasError('required')">
-      L'ID de l'entreprise est obligatoire.
     </mat-error>
   </mat-form-field>
 
@@ -47,10 +39,7 @@
   <mat-form-field appearance="outline">
     <mat-label>Type de contrat</mat-label>
     <mat-select formControlName="contractType">
-      <mat-option
-        *ngFor="let type of contractType"
-        [value]="type"
-      >
+      <mat-option *ngFor="let type of contractType" [value]="type">
         {{ type }}
       </mat-option>
     </mat-select>
@@ -62,10 +51,7 @@
   <mat-form-field appearance="outline">
     <mat-label>Niveau d'expérience</mat-label>
     <mat-select formControlName="experienceLevel">
-      <mat-option
-        *ngFor="let level of experienceLevel"
-        [value]="level"
-      >
+      <mat-option *ngFor="let level of experienceLevel" [value]="level">
         {{ level }}
       </mat-option>
     </mat-select>
@@ -118,3 +104,6 @@
     </button>
   </div>
 </form>
+<ng-template #noCompany>
+  Vous ne pouvez pas créer d'offre car vous n'avez pas d'entreprise affectée.
+</ng-template>

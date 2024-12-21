@@ -33,7 +33,11 @@ import { Router } from '@angular/router';
 export class CreateJobsFormComponent {
   private readonly createJobsFacade = inject(CreateJobsFacade);
   private readonly snackBar = inject(MatSnackBar);
-  private readonly router = inject(Router)
+  private readonly router = inject(Router);
+
+  private readonly currentUser = this.createJobsFacade.getUser();
+  private readonly userCompanyId = this.currentUser?.companyId;
+  public readonly hasCompany = !!this.userCompanyId;
 
   private readonly defaultImageUrl =
     'https://images.unsplash.com/photo-1573166675921-076ea6b621ce?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
@@ -46,10 +50,6 @@ export class CreateJobsFormComponent {
 
   public jobForm = new FormGroup({
     title: new FormControl('', {
-      nonNullable: true,
-      validators: Validators.required,
-    }),
-    companyId: new FormControl(0, {
       nonNullable: true,
       validators: Validators.required,
     }),
@@ -95,6 +95,7 @@ export class CreateJobsFormComponent {
   public onSubmit(): void {
     if (this.jobForm.valid) {
       const job: Partial<Job> = this.jobForm.getRawValue();
+      job.companyId = this.userCompanyId;
 
       this.createJobsFacade.createJob(job as Job).subscribe({
         next: (createdJob) => {
