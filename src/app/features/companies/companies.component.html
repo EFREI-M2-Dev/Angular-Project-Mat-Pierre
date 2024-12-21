@@ -1,7 +1,11 @@
 <div class="companies-page">
   <h1 class="page-title">Découvrez nos entreprises partenaires</h1>
 
-  <div class="companies-grid">
+  <p *ngIf="companies.length === 0" class="no-company-message">
+    Aucune entreprise trouvée.
+  </p>
+
+  <div class="companies-grid" *ngIf="companies.length > 0">
     <div *ngFor="let company of companies" class="company-card">
       <app-company-card [company]="company"></app-company-card>
     </div>

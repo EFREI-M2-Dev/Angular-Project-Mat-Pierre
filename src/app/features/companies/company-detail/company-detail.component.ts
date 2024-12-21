@@ -2,12 +2,13 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Company } from 'src/app/types/Company';
 import { CompaniesFacade } from '../companies.facade';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
 import { catchError, of } from 'rxjs';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-company-detail',
@@ -18,6 +19,8 @@ import { catchError, of } from 'rxjs';
     MatCardModule,
     MatListModule,
     MatChipsModule,
+    RouterLink,
+    MatButtonModule
   ],
   templateUrl: './company-detail.component.html',
   styleUrls: ['./company-detail.component.scss'],
@@ -28,28 +31,7 @@ export class CompanyDetailComponent implements OnInit {
   private readonly companiesFacade = inject(CompaniesFacade);
 
   public companyId: string | null = null;
-  public company: Company = {
-    id: 0,
-    name: '',
-    industry: '',
-    location: '',
-    remoteFriendly: false,
-    description: '',
-    website: '',
-    socialLinks: {
-      linkedin: '',
-      twitter: '',
-      facebook: '',
-      instagram: '',
-      behance: '',
-    },
-    size: '',
-    foundedYear: 0,
-    coreValues: [],
-    mission: '',
-    benefits: [],
-    jobOffers: [],
-  };
+  public company: Company | null = null
 
   public ngOnInit(): void {
     this.companyId = this.route.snapshot.paramMap.get('id');

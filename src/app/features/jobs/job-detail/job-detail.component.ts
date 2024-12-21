@@ -34,43 +34,8 @@ export class JobDetailComponent {
   private readonly jobsFacade = inject(JobsFacade);
 
   public jobId: string | null = null;
-  public job: Job = {
-    id: 0,
-    title: '',
-    companyId: 0,
-    description: '',
-    requirements: [],
-    location: '',
-    contractType: 'CDI',
-    experienceLevel: 'Junior',
-    industry: '',
-    languages: [],
-    postedDate: '',
-    status: 'active',
-    image: '',
-  };
-  public company: Company = {
-    id: 0,
-    name: '',
-    industry: '',
-    location: '',
-    remoteFriendly: false,
-    description: '',
-    website: '',
-    socialLinks: {
-      linkedin: undefined,
-      twitter: undefined,
-      facebook: undefined,
-      instagram: undefined,
-      behance: undefined,
-    },
-    size: '',
-    foundedYear: 0,
-    coreValues: [],
-    mission: '',
-    benefits: [],
-    jobOffers: [],
-  };
+  public job: Job | null = null;
+  public company: Company | null = null
 
   public ngOnInit(): void {
     this.jobId = this.route.snapshot.paramMap.get('id');

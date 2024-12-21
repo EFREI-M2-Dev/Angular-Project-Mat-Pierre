@@ -1,9 +1,9 @@
-<div class="job-details">
+<div class="job-details" *ngIf="job; else noJob">
   <div class="job-header" [style.backgroundImage]="'url(' + job.image + ')'">
     <div class="overlay">
       <h1 mat-typography class="job-title">{{ job.title }}</h1>
       <h2 mat-typography class="job-industry">{{ job.industry }}</h2>
-      <h3 mat-typography class="job-company">
+      <h3 mat-typography class="job-company" *ngIf="company">
         <a [routerLink]="['/companies', company.id]">{{ company.name }}</a>
       </h3>
       <p class="job-location"><mat-icon>place</mat-icon> {{ job.location }}</p>
@@ -98,3 +98,9 @@
     </a>
   </div>
 </div>
+<ng-template #noJob>
+  <div class="error-message">
+    Impossible de charger cette offre.
+    <a mat-raised-button [routerLink]="['/jobs']">Retour</a>
+  </div>
+</ng-template>

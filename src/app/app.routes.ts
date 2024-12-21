@@ -31,6 +31,7 @@ export const routes: Routes = [
     path: 'create-jobs',
     loadComponent: () =>
       import('./features/create-jobs/create-jobs.component').then((c) => c.CreateJobsComponent),
+    canActivate: [authGuard],
   },
   {
     path: 'jobs/:id',

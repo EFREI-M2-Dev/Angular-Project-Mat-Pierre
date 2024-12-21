@@ -1,4 +1,4 @@
-<div class="company-details">
+<div class="company-details" *ngIf="company; else noCompany">
   <div class="company-header">
     <div class="overlay">
       <h1 mat-typography class="company-name">{{ company.name }}</h1>
@@ -108,3 +108,9 @@
     </mat-card-content>
   </mat-card>
 </div>
+<ng-template #noCompany>
+  <div class="error-message">
+    Impossible de charger cette entreprise.
+    <a mat-raised-button [routerLink]="['/companies']">Retour</a>
+  </div>
+</ng-template>
