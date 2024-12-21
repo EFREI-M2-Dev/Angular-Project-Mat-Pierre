@@ -1,0 +1,65 @@
+<div class="container">
+    <h1>{{ mode === 'signin' ? 'Créer un compte' : 'Se connecter' }}</h1>
+    <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <mat-form-field floatLabel="always">
+            <mat-label>Email</mat-label>
+            <input 
+                matInput
+                type="email"
+                formControlName="email"
+                placeholder="toto@exemple.fr"
+            />
+            <mat-error *ngIf="email?.hasError('required')">L'email est requis.</mat-error>
+            <mat-error *ngIf="email?.hasError('email')">Veuillez entrer un email valide.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field floatLabel="always"
+        *ngIf="mode === 'signin'"
+        >
+            <mat-label>Nom</mat-label>
+            <input
+                matInput
+                type="text"
+                formControlName="name"
+                placeholder="Votre nom"
+            />
+            <mat-error *ngIf="name?.hasError('required')">Le nom est requis.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field floatLabel="always">
+            <mat-label>Mot de passe</mat-label>
+            <input
+                matInput
+                type="password"
+                formControlName="password"
+                placeholder="Mot de passe"
+            />
+            <mat-error *ngIf="password?.hasError('required')">Le mot de passe est requis.</mat-error>
+
+            <mat-error *ngIf="mode === 'signin' && password?.hasError('minlength')">
+                Le mot de passe doit contenir au moins 6 caractères.
+            </mat-error>
+            
+            <mat-error *ngIf="mode === 'signin' && password?.hasError('passwordForbidden')">
+                <span *ngIf="password?.errors?.['passwordForbidden'].capitalLetter">Le mot de passe doit contenir au moins une lettre majuscule.</span>
+                <span *ngIf="password?.errors?.['passwordForbidden'].specialCharacter">Le mot de passe doit contenir au moins un caractère spécial.</span>
+            </mat-error>
+        </mat-form-field>
+
+        <button 
+            mat-raised-button
+            color="primary"
+            type="submit"
+            [disabled]="authForm.invalid || isSubmitting">
+            <mat-spinner *ngIf="isSubmitting" diameter="24"></mat-spinner>
+            {{ mode === 'signin' ? 'S\'inscrire' : 'Se connecter' }}
+        </button>
+    </form>
+
+    <h2>{{ mode === 'signin' ? 'Déjà un compte ?' : 'Nouvel utilisateur ?' }}</h2>
+    <button 
+        mat-raised-button
+        [routerLink]="[mode === 'signin' ? '/login' : '/signin']">
+        {{ mode === 'signin' ? 'Se connecter' : 'Se créer un compte' }}
+    </button>
+</div>
