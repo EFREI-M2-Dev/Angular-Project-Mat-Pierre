@@ -44,14 +44,15 @@ export class AuthService {
   }
 
   logIn(email: string, password: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}?email=${email}&password=${password}`).pipe(
+    return this.http.get<User[]>(`${this.apiUrl}?email=${email}&password=${password}`).pipe(
+      map(users => users[0]),
       tap(user => {
-        this.userService.login(user);
-        this.router.navigate(['/home']);
-      }),
-      catchError(error => {
-        console.error('Erreur de connexion:', error);
-        return throwError(() => new Error('Erreur de connexion'));
+        if(user !== undefined){
+          this.userService.login(user);
+          this.router.navigate(['/home']);
+        }else{
+          throw new Error('Email ou mot de passe incorrect');
+        }
       })
     );
   }

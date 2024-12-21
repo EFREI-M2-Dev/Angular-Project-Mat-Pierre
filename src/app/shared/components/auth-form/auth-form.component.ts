@@ -44,6 +44,7 @@ export class AuthFormComponent implements OnInit {
   @Input() mode: 'login' | 'signin' = 'login';  // Déterminer si le formulaire est pour la connexion ou l'inscription
   protected authForm!: FormGroup;
   public isSubmitting = false;
+  public wrongLogin = false;
 
   private readonly formBuilder = inject(FormBuilder);
   private readonly authService = inject(AuthService);
@@ -57,7 +58,7 @@ export class AuthFormComponent implements OnInit {
       });
     } else {
       this.authForm = this.formBuilder.group({
-        email: ['', [Validators.required, Validators.email]],
+        email: ['', [Validators.required]],
         password: ['', Validators.required]
       });
     }
@@ -98,6 +99,8 @@ export class AuthFormComponent implements OnInit {
           error: (error) => {
             console.error('Erreur de connexion', error);
             this.isSubmitting = false;
+            this.authForm.markAsPristine();
+            this.wrongLogin = true;
           }
         });
       }
