@@ -390,9 +390,9 @@
       "id": "1",
       "name": "John Doe",
       "email": "john.doe@example.com",
-      "password": "1234",
+      "password": "test",
       "companyId": 1,
-      "languageSpoken": "Chinois"
+      "languageSpoken": "Français"
     },
     {
       "id": "2",

@@ -3,6 +3,10 @@
 
   <app-jobs-search (filtersChanged)="applyFilters($event)"></app-jobs-search>
 
+  <mat-slide-toggle [(ngModel)]="filterByLanguage" (change)="getJobs()">
+    Filtrer par votre langue
+  </mat-slide-toggle>
+
   <p *ngIf="filteredJobs.length === 0" class="no-jobs-message">
     Aucune offre trouvée.
   </p>

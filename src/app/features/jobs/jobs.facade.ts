@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { CompanyService } from 'src/app/core/services/company.service';
 import { JobService } from 'src/app/core/services/job.service';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +9,7 @@ import { JobService } from 'src/app/core/services/job.service';
 export class JobsFacade {
   private readonly jobService = inject(JobService);
   private readonly companyService = inject(CompanyService);
+  private readonly userService = inject(UserService);
 
   public getJobs() {
     return this.jobService.getJobs();
@@ -23,5 +25,9 @@ export class JobsFacade {
 
   public getCompany(id: string) {
     return this.companyService.getCompany(id);
+  }
+
+  public getUser() {
+    return this.userService.currentUser;
   }
 }
