@@ -11,6 +11,7 @@ import {
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { User } from 'src/app/types/User';
 import { AuthService } from 'src/app/core/services/auth.service';
 
@@ -23,7 +24,8 @@ import { AuthService } from 'src/app/core/services/auth.service';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.scss'],
@@ -34,6 +36,7 @@ export class ProfileFormComponent implements OnInit{
   private readonly formBuilder = inject(FormBuilder);
   private readonly userService = inject(UserService);
   private readonly authService = inject(AuthService);
+  private readonly snackBar = inject(MatSnackBar);
   
 
   ngOnInit(): void {
@@ -65,7 +68,11 @@ export class ProfileFormComponent implements OnInit{
         name: this.name?.value,
         languageSpoken: this.languageSpoken?.value
       };
-      this.authService.updateUser(this.userService.currentUser!.id, userUpdate).subscribe();
+      this.authService.updateUser(this.userService.currentUser!.id, userUpdate).subscribe({
+        next: (user) => {
+          this.snackBar.open("Le profil a bien été mis à jour", 'Ok');
+        }
+      });
     }
   }
 
