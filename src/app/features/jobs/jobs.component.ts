@@ -35,7 +35,7 @@ export class JobsComponent implements OnInit {
     this.jobsFacade.getJobs().pipe(
       map(jobs => jobs.filter(job => {
         const userLanguage = this.userService.currentUser?.languageSpoken;
-        return userLanguage && job.languages.includes(userLanguage);
+        return userLanguage === 'none' ? job : userLanguage && job.languages.includes(userLanguage);
       }))
     ).subscribe((res) => {
       this.jobs = res;
