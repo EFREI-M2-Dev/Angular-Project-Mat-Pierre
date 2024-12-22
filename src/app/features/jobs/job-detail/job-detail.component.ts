@@ -35,7 +35,7 @@ export class JobDetailComponent {
 
   public jobId: string | null = null;
   public job: Job | null = null;
-  public company: Company | null = null
+  public company: Company | null = null;
 
   public ngOnInit(): void {
     this.jobId = this.route.snapshot.paramMap.get('id');
@@ -47,7 +47,7 @@ export class JobDetailComponent {
           console.error("Erreur lors de la récupération de l'offre :", error);
           this.router.navigate(['/jobs']);
           return of(null);
-        })
+        }),
       )
       .subscribe((res) => {
         if (res) {
@@ -64,10 +64,10 @@ export class JobDetailComponent {
         catchError((error) => {
           console.error(
             "Erreur lors de la récupération de l'entreprise :",
-            error
+            error,
           );
           return of(null);
-        })
+        }),
       )
       .subscribe((res) => {
         if (res) {

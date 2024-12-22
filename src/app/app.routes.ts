@@ -12,13 +12,17 @@ export const routes: Routes = [
   {
     path: 'companies',
     loadComponent: () =>
-      import('./features/companies/companies.component').then((c) => c.CompaniesComponent),
+      import('./features/companies/companies.component').then(
+        (c) => c.CompaniesComponent,
+      ),
     canActivate: [authGuard],
   },
   {
     path: 'companies/:id',
     loadComponent: () =>
-      import('./features/companies/company-detail/company-detail.component').then((c) => c.CompanyDetailComponent),
+      import(
+        './features/companies/company-detail/company-detail.component'
+      ).then((c) => c.CompanyDetailComponent),
     canActivate: [authGuard],
   },
   {
@@ -30,19 +34,25 @@ export const routes: Routes = [
   {
     path: 'create-jobs',
     loadComponent: () =>
-      import('./features/create-jobs/create-jobs.component').then((c) => c.CreateJobsComponent),
+      import('./features/create-jobs/create-jobs.component').then(
+        (c) => c.CreateJobsComponent,
+      ),
     canActivate: [authGuard],
   },
   {
     path: 'jobs/:id',
     loadComponent: () =>
-      import('./features/jobs/job-detail/job-detail.component').then((c) => c.JobDetailComponent),
+      import('./features/jobs/job-detail/job-detail.component').then(
+        (c) => c.JobDetailComponent,
+      ),
     canActivate: [authGuard],
   },
   {
     path: 'profile',
     loadComponent: () =>
-      import('./features/profile/profile.component').then((c) => c.ProfileComponent),
+      import('./features/profile/profile.component').then(
+        (c) => c.ProfileComponent,
+      ),
     canActivate: [authGuard],
   },
   {
@@ -53,6 +63,8 @@ export const routes: Routes = [
   {
     path: 'signin',
     loadComponent: () =>
-      import('./features/signin/signin.component').then((c) => c.SigninComponent)
-  }
+      import('./features/signin/signin.component').then(
+        (c) => c.SigninComponent,
+      ),
+  },
 ];

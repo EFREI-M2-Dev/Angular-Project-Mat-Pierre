@@ -5,13 +5,8 @@ import { AuthFormComponent } from 'src/app/shared/components/auth-form/auth-form
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [
-    CommonModule,
-    AuthFormComponent
-  ],
+  imports: [CommonModule, AuthFormComponent],
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  styleUrls: ['./signin.component.scss'],
 })
-export class SigninComponent {
-
-}
+export class SigninComponent {}

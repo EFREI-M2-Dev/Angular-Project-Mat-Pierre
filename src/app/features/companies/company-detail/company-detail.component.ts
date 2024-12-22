@@ -20,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatListModule,
     MatChipsModule,
     RouterLink,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './company-detail.component.html',
   styleUrls: ['./company-detail.component.scss'],
@@ -31,7 +31,7 @@ export class CompanyDetailComponent implements OnInit {
   private readonly companiesFacade = inject(CompaniesFacade);
 
   public companyId: string | null = null;
-  public company: Company | null = null
+  public company: Company | null = null;
 
   public ngOnInit(): void {
     this.companyId = this.route.snapshot.paramMap.get('id');
@@ -42,11 +42,11 @@ export class CompanyDetailComponent implements OnInit {
         catchError((error) => {
           console.error(
             "Erreur lors de la récupération de l'entreprise :",
-            error
+            error,
           );
           this.router.navigate(['/companies']);
           return of(null);
-        })
+        }),
       )
       .subscribe((res) => {
         if (res) {

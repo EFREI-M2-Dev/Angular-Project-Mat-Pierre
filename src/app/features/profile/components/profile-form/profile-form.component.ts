@@ -25,25 +25,29 @@ import { AuthService } from 'src/app/core/services/auth.service';
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   templateUrl: './profile-form.component.html',
   styleUrls: ['./profile-form.component.scss'],
 })
-export class ProfileFormComponent implements OnInit{
-
+export class ProfileFormComponent implements OnInit {
   public profileForm!: FormGroup;
   private readonly formBuilder = inject(FormBuilder);
   private readonly userService = inject(UserService);
   private readonly authService = inject(AuthService);
   private readonly snackBar = inject(MatSnackBar);
-  
 
   ngOnInit(): void {
     this.profileForm = this.formBuilder.group({
       name: [this.userService.currentUser?.name, Validators.required],
-      email: [this.userService.currentUser?.email, [Validators.required, Validators.email]],
-      languageSpoken: [this.userService.currentUser?.languageSpoken || 'none', Validators.required]
+      email: [
+        this.userService.currentUser?.email,
+        [Validators.required, Validators.email],
+      ],
+      languageSpoken: [
+        this.userService.currentUser?.languageSpoken || 'none',
+        Validators.required,
+      ],
     });
   }
 
@@ -60,19 +64,19 @@ export class ProfileFormComponent implements OnInit{
   }
 
   public onSubmit(): void {
-
-
-    if (this.profileForm.valid){
+    if (this.profileForm.valid) {
       const userUpdate: Partial<User> = {
         email: this.email?.value,
         name: this.name?.value,
-        languageSpoken: this.languageSpoken?.value
+        languageSpoken: this.languageSpoken?.value,
       };
-      this.authService.updateUser(this.userService.currentUser!.id, userUpdate).subscribe({
-        next: (user) => {
-          this.snackBar.open("Le profil a bien été mis à jour", 'Ok');
-        }
-      });
+      this.authService
+        .updateUser(this.userService.currentUser!.id, userUpdate)
+        .subscribe({
+          next: (user) => {
+            this.snackBar.open('Le profil a bien été mis à jour', 'Ok');
+          },
+        });
     }
   }
 
@@ -80,7 +84,7 @@ export class ProfileFormComponent implements OnInit{
     this.profileForm.setValue({
       name: this.userService.currentUser!.name,
       email: this.userService.currentUser!.email,
-      languageSpoken: this.userService.currentUser!.languageSpoken
+      languageSpoken: this.userService.currentUser!.languageSpoken,
     });
   }
 }

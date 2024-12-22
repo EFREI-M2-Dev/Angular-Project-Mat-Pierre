@@ -49,10 +49,10 @@ export class JobsComponent implements OnInit {
 
           return this.filterByLanguage && userLanguage !== 'none'
             ? jobs.filter(
-                (job) => userLanguage && job.languages.includes(userLanguage)
+                (job) => userLanguage && job.languages.includes(userLanguage),
               )
             : jobs;
-        })
+        }),
       )
       .subscribe((res) => {
         this.jobs = res;

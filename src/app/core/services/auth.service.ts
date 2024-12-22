@@ -2,15 +2,21 @@ import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { map, Observable, switchMap, catchError, throwError, of, tap } from 'rxjs';
+import {
+  map,
+  Observable,
+  switchMap,
+  catchError,
+  throwError,
+  of,
+  tap,
+} from 'rxjs';
 import { User } from 'src/app/types/User';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private readonly http = inject(HttpClient);
   private readonly userService = inject(UserService);
   private readonly router = inject(Router);
@@ -18,39 +24,47 @@ export class AuthService {
 
   signIn(name: string, email: string, password: string): Observable<User> {
     return this.isEmailUnique(email).pipe(
-      switchMap(isUnique => {
+      switchMap((isUnique) => {
         if (!isUnique) {
           return throwError(() => new Error('Email already in use'));
         }
 
         return this.getUsers().pipe(
-          map(users => {
+          map((users) => {
             const lastId = this.getLastIndexAvailable(users);
-            return { id: lastId + 1, name, email, password, languageSpoken: "none" } as User;
+            return {
+              id: lastId + 1,
+              name,
+              email,
+              password,
+              languageSpoken: 'none',
+            } as User;
           }),
-          switchMap(newUser => this.createUser(newUser)),
-          tap(() => this.router.navigate(['login']))
+          switchMap((newUser) => this.createUser(newUser)),
+          tap(() => this.router.navigate(['login'])),
         );
       }),
-      catchError(error => {
+      catchError((error) => {
         console.error('Error during sign-in:', error);
         return throwError(() => error);
-      })
+      }),
     );
   }
 
   logIn(email: string, password: string): Observable<User> {
-    return this.http.get<User[]>(`${this.apiUrl}?email=${email}&password=${password}`).pipe(
-      map(users => users[0]),
-      tap(user => {
-        if(user !== undefined){
-          this.userService.login(user);
-          this.router.navigate(['/home']);
-        }else{
-          throw new Error('Email ou mot de passe incorrect');
-        }
-      })
-    );
+    return this.http
+      .get<User[]>(`${this.apiUrl}?email=${email}&password=${password}`)
+      .pipe(
+        map((users) => users[0]),
+        tap((user) => {
+          if (user !== undefined) {
+            this.userService.login(user);
+            this.router.navigate(['/home']);
+          } else {
+            throw new Error('Email ou mot de passe incorrect');
+          }
+        }),
+      );
   }
 
   logOut() {
@@ -60,10 +74,10 @@ export class AuthService {
 
   updateUser(id: number, userUpdate: Partial<User>): Observable<User> {
     return this.http.patch<User>(`${this.apiUrl}/${id}`, userUpdate).pipe(
-      tap(user => {
+      tap((user) => {
         this.userService.updateUserData(user);
-      })
-    )
+      }),
+    );
   }
 
   private getUsers(): Observable<User[]> {
@@ -72,8 +86,8 @@ export class AuthService {
 
   private isEmailUnique(email: string): Observable<boolean> {
     return this.http.get<User[]>(`${this.apiUrl}?email=${email}`).pipe(
-      map(users => users.length === 0),
-      catchError(() => of(true))
+      map((users) => users.length === 0),
+      catchError(() => of(true)),
     );
   }
 
@@ -84,6 +98,4 @@ export class AuthService {
   private createUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl, user);
   }
-
-  
 }

@@ -8,12 +8,14 @@
   <a mat-button routerLink="/create-jobs">Créer une offre</a>
 
   <span class="spacer"></span>
-  
+
   <button mat-icon-button [matMenuTriggerFor]="profil" aria-label="Profil">
     <mat-icon>person</mat-icon>
   </button>
   <mat-menu #profil="matMenu">
     <button mat-menu-item routerLink="profile">Mon profil</button>
-    <button mat-menu-item (click)="onDisconnect()">Déconnexion<mat-icon>logout</mat-icon></button>
+    <button mat-menu-item (click)="onDisconnect()">
+      Déconnexion<mat-icon>logout</mat-icon>
+    </button>
   </mat-menu>
 </mat-toolbar>
