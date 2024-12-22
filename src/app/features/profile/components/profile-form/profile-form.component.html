@@ -2,7 +2,7 @@
   <mat-form-field appearance="outline">
     <mat-label>Nom</mat-label>
     <input matInput formControlName="name" placeholder="Entrez votre nom" />
-    <mat-error *ngIf="profileForm.get('name')?.hasError('required')">
+    <mat-error *ngIf="this.name?.hasError('required')">
       Le nom est obligatoire.
     </mat-error>
   </mat-form-field>
@@ -24,7 +24,7 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Mot de passe</mat-label>
+    <mat-label>Nouveau mot de passe</mat-label>
     <input
       matInput
       type="password"
@@ -34,6 +34,24 @@
     <mat-error *ngIf="profileForm.get('password')?.hasError('minlength')">
       Le mot de passe doit contenir au moins 6 caractères.
     </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Localisation</mat-label>
+    <input matInput formControlName="location" placeholder="Entrez la ville dans laquelle vous souhaitez rechercher"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Langue</mat-label>
+    <mat-select formControlName="languageSpoken">
+      <mat-option value="none"></mat-option>
+      <mat-option value="Français">Français</mat-option>
+      <mat-option value="Anglais">Anglais</mat-option>
+      <mat-option value="Espagnol">Espagnol</mat-option>
+      <mat-option value="Allemand">Allemand</mat-option>
+      <mat-option value="Chinois">Chinois</mat-option>
+      <mat-option value="Italien">Italien</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <div class="actions">

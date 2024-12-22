@@ -4,6 +4,6 @@ export interface User {
     email: string;
     password: string;
     location: string;
-    languagesSpoken: string[]; 
+    languageSpoken: string; 
     companyId?: number;
 }

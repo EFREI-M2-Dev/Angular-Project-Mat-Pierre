@@ -16,10 +16,6 @@ export class AuthService {
   private readonly router = inject(Router);
   private apiUrl = 'http://localhost:3000/users';
 
-  private getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
-  }
-
   signIn(name: string, email: string, password: string): Observable<User> {
     return this.isEmailUnique(email).pipe(
       switchMap(isUnique => {
@@ -30,7 +26,7 @@ export class AuthService {
         return this.getUsers().pipe(
           map(users => {
             const lastId = this.getLastIndexAvailable(users);
-            return { id: lastId + 1, name, email, password, location: "", languagesSpoken: [] } as User;
+            return { id: lastId + 1, name, email, password, location: "", languageSpoken: "" } as User;
           }),
           switchMap(newUser => this.createUser(newUser)),
           tap(() => this.router.navigate(['login']))
@@ -62,6 +58,18 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
+  updateUser(id: number, userUpdate: Partial<User>): Observable<User> {
+    return this.http.patch<User>(`${this.apiUrl}/${id}`, userUpdate).pipe(
+      tap(user => {
+        this.userService.updateUserData(user);
+      })
+    )
+  }
+
+  private getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiUrl);
+  }
+
   private isEmailUnique(email: string): Observable<boolean> {
     return this.http.get<User[]>(`${this.apiUrl}?email=${email}`).pipe(
       map(users => users.length === 0),
@@ -76,4 +84,6 @@ export class AuthService {
   private createUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl, user);
   }
+
+  
 }

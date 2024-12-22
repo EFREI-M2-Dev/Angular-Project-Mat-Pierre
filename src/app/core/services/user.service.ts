@@ -27,6 +27,11 @@ export class UserService {
     localStorage.removeItem('user');
   }
 
+  updateUserData(user: User): void {
+    localStorage.removeItem('user');
+    this.login(user);
+  }
+
   get currentUser(): User | null {
     return this.currentUserSubject.value;
   }

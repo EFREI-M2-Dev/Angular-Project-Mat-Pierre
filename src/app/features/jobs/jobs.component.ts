@@ -7,6 +7,8 @@ import { Job, JobFilters } from 'src/app/types/Job';
 import { JobCardComponent } from '../../shared/components/job-card/job-card.component';
 import { JobsSearchComponent } from './components/jobs-search/jobs-search.component';
 import { JobsFacade } from './jobs.facade';
+import { map } from 'rxjs';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-jobs',
@@ -24,12 +26,18 @@ import { JobsFacade } from './jobs.facade';
 })
 export class JobsComponent implements OnInit {
   private readonly jobsFacade = inject(JobsFacade);
+  private readonly userService = inject(UserService);
 
   public jobs: Job[] = [];
   public filteredJobs: Job[] = [];
 
   public ngOnInit(): void {
-    this.jobsFacade.getJobs().subscribe((res) => {
+    this.jobsFacade.getJobs().pipe(
+      map(jobs => jobs.filter(job => {
+        const userLanguage = this.userService.currentUser?.languageSpoken;
+        return userLanguage && job.languages.includes(userLanguage);
+      }))
+    ).subscribe((res) => {
       this.jobs = res;
       this.filteredJobs = res;
     });

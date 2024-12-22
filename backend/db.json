@@ -1,7 +1,7 @@
 {
   "companies": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Tech Innovators",
       "industry": "Tech",
       "location": "Paris",
@@ -14,13 +14,24 @@
       },
       "size": "50-200 employés",
       "foundedYear": 2015,
-      "coreValues": ["Innovation", "Transparence", "Esprit d'équipe"],
+      "coreValues": [
+        "Innovation",
+        "Transparence",
+        "Esprit d'équipe"
+      ],
       "mission": "Révolutionner le secteur de la technologie pour un avenir durable.",
-      "benefits": ["Mutuelle", "Tickets restaurant", "Prime de performance"],
-      "jobOffers": [1, 5]
+      "benefits": [
+        "Mutuelle",
+        "Tickets restaurant",
+        "Prime de performance"
+      ],
+      "jobOffers": [
+        1,
+        5
+      ]
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Green Horizons",
       "industry": "Énergie renouvelable",
       "location": "Lyon",
@@ -33,13 +44,24 @@
       },
       "size": "200-500 employés",
       "foundedYear": 2010,
-      "coreValues": ["Durabilité", "Innovation", "Éthique"],
+      "coreValues": [
+        "Durabilité",
+        "Innovation",
+        "Éthique"
+      ],
       "mission": "Construire un futur plus vert grâce à des solutions énergétiques durables.",
-      "benefits": ["RTT", "Prime d'intéressement", "Formations internes"],
-      "jobOffers": [2, 6]
+      "benefits": [
+        "RTT",
+        "Prime d'intéressement",
+        "Formations internes"
+      ],
+      "jobOffers": [
+        2,
+        6
+      ]
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Creative Minds",
       "industry": "Design et Création",
       "location": "Marseille",
@@ -52,13 +74,23 @@
       },
       "size": "10-50 employés",
       "foundedYear": 2018,
-      "coreValues": ["Créativité", "Collaboration", "Excellence"],
+      "coreValues": [
+        "Créativité",
+        "Collaboration",
+        "Excellence"
+      ],
       "mission": "Rendre chaque interaction utilisateur mémorable grâce à un design exceptionnel.",
-      "benefits": ["Télétravail", "Participation aux événements design"],
-      "jobOffers": [3, 7]
+      "benefits": [
+        "Télétravail",
+        "Participation aux événements design"
+      ],
+      "jobOffers": [
+        3,
+        7
+      ]
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "NextGen Finance",
       "industry": "Finance",
       "location": "Bordeaux",
@@ -70,68 +102,110 @@
       },
       "size": "100-300 employés",
       "foundedYear": 2012,
-      "coreValues": ["Responsabilité", "Innovation", "Confiance"],
+      "coreValues": [
+        "Responsabilité",
+        "Innovation",
+        "Confiance"
+      ],
       "mission": "Soutenir les entrepreneurs à chaque étape de leur croissance financière.",
-      "benefits": ["Mutuelle", "Prime annuelle", "Avantages CE"],
-      "jobOffers": [4, 8]
+      "benefits": [
+        "Mutuelle",
+        "Prime annuelle",
+        "Avantages CE"
+      ],
+      "jobOffers": [
+        4,
+        8
+      ]
     }
   ],
   "jobs": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Développeur Full Stack",
       "companyId": 1,
       "description": "Développer des applications Web modernes.",
-      "requirements": ["HTML/CSS", "JavaScript"],
-      "niceToHave": ["React", "TypeScript"],
+      "requirements": [
+        "HTML/CSS",
+        "JavaScript"
+      ],
+      "niceToHave": [
+        "React",
+        "TypeScript"
+      ],
       "location": "Lyon, Télétravail partiel",
       "contractType": "CDI",
       "salary": "35-45k €/an",
       "experienceLevel": "Junior",
       "industry": "Développement Web",
-      "languages": ["Français", "Anglais"],
+      "languages": [
+        "Français",
+        "Anglais"
+      ],
       "postedDate": "2024-12-01",
       "deadline": "2024-12-31",
       "workHours": "Temps plein",
-      "benefits": ["Mutuelle", "Tickets restaurant"],
+      "benefits": [
+        "Mutuelle",
+        "Tickets restaurant"
+      ],
       "applyLink": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
       "status": "active",
       "image": "https://images.unsplash.com/photo-1573166675921-076ea6b621ce?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Designer Graphique",
       "companyId": 2,
       "description": "Concevoir les interfaces utilisateur innovantes.",
-      "requirements": ["Photoshop", "Illustrator"],
-      "niceToHave": ["Figma", "Adobe XD"],
+      "requirements": [
+        "Photoshop",
+        "Illustrator"
+      ],
+      "niceToHave": [
+        "Figma",
+        "Adobe XD"
+      ],
       "location": "Paris, Télétravail possible",
       "contractType": "CDD",
       "salary": "30-40k €/an",
       "experienceLevel": "Intermédiaire",
       "industry": "Design Graphique",
-      "languages": ["Français"],
+      "languages": [
+        "Français"
+      ],
       "postedDate": "2024-11-25",
       "deadline": "2024-12-15",
       "workHours": "Temps plein",
-      "benefits": ["RTT", "Événements d'entreprise"],
+      "benefits": [
+        "RTT",
+        "Événements d'entreprise"
+      ],
       "applyLink": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
       "status": "active",
       "image": "https://images.unsplash.com/photo-1532618793091-ec5fe9635fbd?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Designer Graphique",
       "companyId": 3,
       "description": "Concevoir des interfaces utilisateur innovantes.",
-      "requirements": ["Photoshop", "Illustrator"],
-      "niceToHave": ["Figma", "Motion Design"],
+      "requirements": [
+        "Photoshop",
+        "Illustrator"
+      ],
+      "niceToHave": [
+        "Figma",
+        "Motion Design"
+      ],
       "location": "Marseille",
       "contractType": "Freelance",
       "salary": "Taux journalier : 300-400 €",
       "experienceLevel": "Intermédiaire",
       "industry": "Création Digitale",
-      "languages": ["Français"],
+      "languages": [
+        "Chinois"
+      ],
       "postedDate": "2024-11-20",
       "deadline": "2024-12-20",
       "workHours": "Flexible",
@@ -141,106 +215,171 @@
       "image": "https://images.unsplash.com/photo-1579389082978-de4aece6f446?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Développeur Full-Stack",
       "companyId": 4,
       "description": "Développer et maintenir des applications web complètes.",
-      "requirements": ["JavaScript", "Node.js", "React"],
-      "niceToHave": ["TypeScript", "Docker"],
+      "requirements": [
+        "JavaScript",
+        "Node.js",
+        "React"
+      ],
+      "niceToHave": [
+        "TypeScript",
+        "Docker"
+      ],
       "location": "Lille, Télétravail partiel",
       "contractType": "CDI",
       "salary": "45-55k €/an",
       "experienceLevel": "Senior",
       "industry": "Développement Web",
-      "languages": ["Français", "Anglais"],
+      "languages": [
+        "Français",
+        "Anglais"
+      ],
       "postedDate": "2024-12-01",
       "deadline": "2024-12-31",
       "workHours": "Temps plein",
-      "benefits": ["Mutuelle", "Prime d'intéressement"],
+      "benefits": [
+        "Mutuelle",
+        "Prime d'intéressement"
+      ],
       "applyLink": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
       "status": "active",
       "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Chef de Projet",
       "companyId": 1,
       "description": "Gérer les projets et coordonner les équipes.",
-      "requirements": ["Gestion de projet", "Communication"],
-      "niceToHave": ["Agile", "Scrum"],
+      "requirements": [
+        "Gestion de projet",
+        "Communication"
+      ],
+      "niceToHave": [
+        "Agile",
+        "Scrum"
+      ],
       "location": "Bordeaux, Télétravail possible",
       "contractType": "CDI",
       "salary": "50-60k €/an",
       "experienceLevel": "Intermédiaire",
       "industry": "Gestion de Projet",
-      "languages": ["Français", "Anglais"],
+      "languages": [
+        "Français",
+        "Anglais"
+      ],
       "postedDate": "2024-11-28",
       "deadline": "2024-12-20",
       "workHours": "Temps plein",
-      "benefits": ["Mutuelle", "Formations offertes"],
+      "benefits": [
+        "Mutuelle",
+        "Formations offertes"
+      ],
       "applyLink": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
       "status": "active",
       "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2968&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Analyste de Données",
       "companyId": 2,
       "description": "Analyser et interpréter des données complexes.",
-      "requirements": ["Python", "SQL", "Excel"],
-      "niceToHave": ["Power BI", "Tableau"],
+      "requirements": [
+        "Python",
+        "SQL",
+        "Excel"
+      ],
+      "niceToHave": [
+        "Power BI",
+        "Tableau"
+      ],
       "location": "Nantes",
       "contractType": "CDI",
       "salary": "40-50k €/an",
       "experienceLevel": "Junior",
       "industry": "Analyse de Données",
-      "languages": ["Français", "Anglais"],
+      "languages": [
+        "Français",
+        "Anglais"
+      ],
       "postedDate": "2024-11-30",
       "deadline": "2024-12-30",
       "workHours": "Temps plein",
-      "benefits": ["Prime d'intéressement", "Tickets restaurant"],
+      "benefits": [
+        "Prime d'intéressement",
+        "Tickets restaurant"
+      ],
       "applyLink": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
       "status": "active",
       "image": "https://images.unsplash.com/photo-1538688423619-a81d3f23454b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Consultant en Stratégie",
       "companyId": 3,
       "description": "Fournir des recommandations stratégiques aux clients.",
-      "requirements": ["Analyse", "Présentation", "Excel"],
-      "niceToHave": ["Gestion de projet", "Business Intelligence"],
+      "requirements": [
+        "Analyse",
+        "Présentation",
+        "Excel"
+      ],
+      "niceToHave": [
+        "Gestion de projet",
+        "Business Intelligence"
+      ],
       "location": "Lyon",
       "contractType": "CDI",
       "salary": "55-65k €/an",
       "experienceLevel": "Senior",
       "industry": "Conseil Stratégique",
-      "languages": ["Français", "Anglais"],
+      "languages": [
+        "Français",
+        "Anglais"
+      ],
       "postedDate": "2024-11-27",
       "deadline": "2024-12-20",
       "workHours": "Temps plein",
-      "benefits": ["Mutuelle", "CE"],
+      "benefits": [
+        "Mutuelle",
+        "CE"
+      ],
       "applyLink": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
       "status": "active",
       "image": "https://images.unsplash.com/photo-1579389082978-de4aece6f446?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Responsable Marketing",
       "companyId": 4,
       "description": "Planifier et exécuter des campagnes marketing.",
-      "requirements": ["SEO", "Google Ads", "Communication"],
-      "niceToHave": ["Data Analysis", "CRM"],
+      "requirements": [
+        "SEO",
+        "Google Ads",
+        "Communication"
+      ],
+      "niceToHave": [
+        "Data Analysis",
+        "CRM"
+      ],
       "location": "Toulouse, Télétravail partiel",
       "contractType": "CDI",
       "salary": "50-60k €/an",
       "experienceLevel": "Intermédiaire",
       "industry": "Marketing Digital",
-      "languages": ["Français", "Anglais"],
+      "languages": [
+        "Français",
+        "Anglais"
+      ],
       "postedDate": "2024-12-01",
       "deadline": "2024-12-25",
       "workHours": "Temps plein",
-      "benefits": ["Mutuelle", "Tickets restaurant", "Télétravail"],
+      "benefits": [
+        "Mutuelle",
+        "Tickets restaurant",
+        "Télétravail"
+      ],
       "applyLink": "https://fr.wikipedia.org/wiki/Spécial:Page_au_hasard",
       "status": "active",
       "image": "https://images.unsplash.com/photo-1573166675921-076ea6b621ce?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -248,125 +387,90 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "John Doe",
       "email": "john.doe@example.com",
-      "password": "test",
+      "password": "1234",
       "companyId": 1,
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Chinois",
+      "location": null
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Jane Doe",
       "email": "jane.doe@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Anglais"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Maverick Doe",
       "email": "maverick.doe@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Jane Smith",
       "email": "jane.smith@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Alice Johnson",
       "email": "alice.johnson@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Bob Brown",
       "email": "bob.brown@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Charlie Davis",
       "email": "charlie.davis@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Emily Wilson",
       "email": "emily.wilson@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Frank Miller",
       "email": "frank.miller@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Grace Lee",
       "email": "grace.lee@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Henry Clark",
       "email": "henry.clark@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Ivy Adams",
       "email": "ivy.adams@example.com",
       "password": "test",
-      "languagesSpoken": [
-        "Français",
-        "Anglais"
-      ]
+      "languageSpoken": "Français"
     }
   ]
 }
