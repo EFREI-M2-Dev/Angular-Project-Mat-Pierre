@@ -392,8 +392,7 @@
       "email": "john.doe@example.com",
       "password": "1234",
       "companyId": 1,
-      "languageSpoken": "none",
-      "location": null
+      "languageSpoken": "Chinois"
     },
     {
       "id": "2",

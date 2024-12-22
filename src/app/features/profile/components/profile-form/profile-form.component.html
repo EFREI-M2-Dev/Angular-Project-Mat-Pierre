@@ -24,24 +24,6 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
-    <mat-label>Nouveau mot de passe</mat-label>
-    <input
-      matInput
-      type="password"
-      formControlName="password"
-      placeholder="Entrez un nouveau mot de passe"
-    />
-    <mat-error *ngIf="profileForm.get('password')?.hasError('minlength')">
-      Le mot de passe doit contenir au moins 6 caractères.
-    </mat-error>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
-    <mat-label>Localisation</mat-label>
-    <input matInput formControlName="location" placeholder="Entrez la ville dans laquelle vous souhaitez rechercher"/>
-  </mat-form-field>
-
-  <mat-form-field appearance="outline">
     <mat-label>Langue</mat-label>
     <mat-select formControlName="languageSpoken">
       <mat-option value="none"></mat-option>

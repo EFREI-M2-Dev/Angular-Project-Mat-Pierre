@@ -26,7 +26,7 @@ export class AuthService {
         return this.getUsers().pipe(
           map(users => {
             const lastId = this.getLastIndexAvailable(users);
-            return { id: lastId + 1, name, email, password, location: "", languageSpoken: "" } as User;
+            return { id: lastId + 1, name, email, password, languageSpoken: "none" } as User;
           }),
           switchMap(newUser => this.createUser(newUser)),
           tap(() => this.router.navigate(['login']))
